@@ -32,6 +32,7 @@ cost = cte^2 + epsi^2 + (V-Vmax)^2 + delta^2 + a^2 + (delta-delta_prev)^2 + (a-a
 # Result
 In the video, the `yellow` is a polynomial fiited to `waypoints` and the `green line` represents the x and y coordinates of the `MPC trajectory`
 > Check out the video ☟
+
 [![Video](http://img.youtube.com/vi/AjmDGNPcCFo/0.jpg)](http://www.youtube.com/watch?v=AjmDGNPcCFo "Model Predictive Control")
 
 # Dependencies
