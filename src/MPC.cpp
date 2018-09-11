@@ -11,8 +11,7 @@ using CppAD::AD;
 size_t N = 10;
 double dt = 0.1;
 
-// This value assumes the model presented in the classroom is used.
-//
+
 // It was obtained by measuring the radius formed by running the vehicle in the
 // simulator around in a circle with a constant steering angle and velocity on a
 // flat terrain.
@@ -50,9 +49,6 @@ class FG_eval
   void operator()(ADvector& fg, const ADvector& vars) 
   {
     // `fg` a vector of the cost constraints, `vars` is a vector of variable values (state & actuators)
-    // NOTE: You'll probably go back and forth between this function and
-    // the Solver function below.
-
     /******************************************
     *******       Calculate ERROR       *******
     *******************************************/
@@ -137,9 +133,7 @@ vector<double> MPC::Solve(Eigen::VectorXd state, Eigen::VectorXd coeffs) {
   double cte = state[4];
   double epsi = state[5];
 
-  // TODO: Set the number of model variables (includes both states and inputs).
-  // For example: If the state is a 4 element vector, the actuators is a 2
-  // element vector and there are 10 timesteps. The number of variables is:
+  // Set the number of model variables (includes both states and inputs).
   size_t n_vars = N*6+(N-1)*2;
   size_t n_constraints = N*6;
 
@@ -199,9 +193,6 @@ vector<double> MPC::Solve(Eigen::VectorXd state, Eigen::VectorXd coeffs) {
   // object that computes objective and constraints
   FG_eval fg_eval(coeffs);
 
-  //
-  // NOTE: You don't have to worry about these options
-  //
   // options for IPOPT solver
   std::string options;
   // Uncomment this if you'd like more print information
